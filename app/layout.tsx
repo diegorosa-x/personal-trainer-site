@@ -1,5 +1,9 @@
 import "./globals.css";
 
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
+
 export const metadata = {
   title: "Higor Freire — Personal Trainer",
   description: "Professional personal trainer site with training plans and WhatsApp contact",
