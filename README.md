@@ -8,6 +8,8 @@ O projeto foi desenvolvido com **React + Vite + TypeScript + Tailwind CSS**, seg
 
 ## 🔥 Preview
 
+👉 **Demo:** https://seu-site.vercel.app
+
 Landing page moderna com foco em performance, conversão e experiência mobile-first.
 
 - Exibição clara dos planos de treino
@@ -22,12 +24,13 @@ Landing page moderna com foco em performance, conversão e experiência mobile-f
 
 - ✅ Design premium fitness (dark mode por padrão)
 - ✅ Totalmente responsivo (mobile first)
-- ✅ Seções componentizadas e reutilizáveis
+- ✅ Arquitetura modular e escalável
+- ✅ Separação clara entre UI, dados e tipagem
+- ✅ Componentização por domínio (sections / features)
 - ✅ Animações sutis (scroll reveal e hover)
 - ✅ Dark / Light mode com persistência
 - ✅ Conteúdo centralizado em constants.ts
 - ✅ Integração direta com WhatsApp
-- ✅ Código limpo e escalável (TypeScript)
 
 ---
 
@@ -48,47 +51,60 @@ Landing page moderna com foco em performance, conversão e experiência mobile-f
 ## 🧱 Estrutura do Projeto
 
 ```text
-├── public/
-│   └── logo.jpeg
+src/
+├── components/
+│   └── Footer.tsx
 │
-├── src/
-│   ├── components/
-│   │   ├── Header.tsx
-│   │   └── Footer.tsx
-│   │
-│   ├── sections/
-│   │   ├── Hero.tsx
-│   │   ├── About.tsx
-│   │   ├── Testimonials.tsx
-│   │   ├── PricingInPerson.tsx
-│   │   ├── PricingOnline.tsx
-│   │   ├── PaymentMethods.tsx
-│   │   └── ContactSection.tsx
-│   │
-│   ├── data/
-│   │   └── constants.ts
-│   │
-│   ├── types/
-│   │   └── types.ts
-│   │
-│   ├── App.tsx
-│   └── main.tsx
+├── features/
+│   └── header/
+│       ├── components/
+│       ├── hooks/
+│       └── index.ts
 │
-├── index.html
-├── package.json
-└── README.md
+├── sections/
+│   ├── Hero.tsx
+│   ├── About.tsx
+│   ├── Testimonials.tsx
+│   ├── PricingInPerson/
+│   ├── PricingOnline/
+│   ├── PaymentMethods.tsx
+│   └── ContactSection.tsx
+│
+├── data/
+│   └── constants.ts
+│
+├── types/
+│   ├── pricing.ts
+│   ├── testimonials.ts
+│   ├── payments.ts
+│   ├── copy.ts
+│   └── index.ts
+│
+├── App.tsx
+└── main.tsx
 ```
 
-✔ **Contato** com chamada principal para WhatsApp
+## 🚀 Como rodar o projeto
+
+```bash
+# instalar dependências
+npm install
+
+# rodar em ambiente de desenvolvimento
+npm run dev
+---
+
+## A aplicação estará disponível em:
+👉 http://localhost:5173
+```
 
 ---
 
-## 🚧 Pré-requisitos
+```md
+## 🧠 Decisões Técnicas
 
-Antes de instalar, verifique se você tem:
-
-- Node.js (versão 16+ recomendada)
-- npm ou yarn
-
----
-
+- Dark mode como padrão para reforçar estética premium fitness
+- Conteúdo centralizado em `constants.ts` para facilitar manutenção e i18n
+- Componentização por domínio para evitar overengineering
+- Acessibilidade básica aplicada (aria-labels, landmarks, lazy loading)
+```
