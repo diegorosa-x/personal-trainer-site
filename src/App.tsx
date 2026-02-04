@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
 import Testimonials from "./sections/Testimonials";
-import PricingInPerson from "./sections/PricingInPerson";
+import PricingInPerson from "./sections/PricingInPerson/PricingInPerson";
 import PaymentMethods from "./sections/PaymentMethods";
 import PricingOnline from "./sections/PrincingOnline";
 import ContactSection from "./sections/ContactSection";
