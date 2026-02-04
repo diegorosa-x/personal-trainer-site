@@ -1,12 +1,15 @@
 import React from "react";
+import { motion, useReducedMotion } from "framer-motion";
+import type { Variants } from "framer-motion";
 import { COPY, WHATSAPP_LINK, ONLINE_FEATURES } from "../../data/constants.ts";
 import { FeatureList } from "./FeatureList";
 import { UrgencyCard } from "./UrgencyCard";
 
 const PricingOnline: React.FC = () => {
   const { pricingOnline } = COPY;
-  const whatsappUrl = WHATSAPP_LINK.whatsapp(pricingOnline.whatsappText);
+  const reduceMotion = useReducedMotion();
 
+  const whatsappUrl = WHATSAPP_LINK.whatsapp(pricingOnline.whatsappText);
   const sectionTitleId = "pricing-online-title";
 
   const cardClass =
@@ -22,6 +25,16 @@ const PricingOnline: React.FC = () => {
     "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 " +
     "focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950";
 
+  const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 14 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: "easeOut" } },
+  };
+
+  const stagger: Variants = {
+    hidden: {},
+    show: { transition: { staggerChildren: 0.1, delayChildren: 0.08 } },
+  };
+
   return (
     <section
       id={pricingOnline.sectionId}
@@ -29,25 +42,46 @@ const PricingOnline: React.FC = () => {
       className="py-24 bg-white dark:bg-slate-950 relative scroll-mt-24"
     >
       <div className="container mx-auto px-6">
-        <div className={cardClass}>
+        <motion.div
+          className={cardClass}
+          initial={reduceMotion ? false : "hidden"}
+          whileInView={reduceMotion ? undefined : "show"}
+          viewport={{ once: true, amount: 0.25 }}
+          variants={fadeUp}
+        >
           <div className="grid lg:grid-cols-2">
             {/* Content */}
-            <div className="p-12 md:p-20">
-              <h2
+            <motion.div
+              className="p-12 md:p-20"
+              initial={reduceMotion ? false : "hidden"}
+              whileInView={reduceMotion ? undefined : "show"}
+              viewport={{ once: true, amount: 0.35 }}
+              variants={stagger}
+            >
+              <motion.h2
                 id={sectionTitleId}
                 className="text-4xl md:text-5xl font-black font-oswald uppercase mb-6 tracking-tight text-slate-900 dark:text-white"
+                variants={fadeUp}
               >
                 {pricingOnline.titlePrefix}{" "}
                 <span className="text-accent">{pricingOnline.titleHighlight}</span>
-              </h2>
+              </motion.h2>
 
-              <p className="text-slate-600 dark:text-slate-400 text-lg mb-10 leading-relaxed">
+              <motion.p
+                className="text-slate-600 dark:text-slate-400 text-lg mb-10 leading-relaxed"
+                variants={fadeUp}
+              >
                 {pricingOnline.description}
-              </p>
+              </motion.p>
 
-              <FeatureList features={ONLINE_FEATURES} />
+              <motion.div variants={fadeUp}>
+                <FeatureList features={ONLINE_FEATURES} />
+              </motion.div>
 
-              <div className="flex flex-col sm:flex-row items-center gap-8">
+              <motion.div
+                className="flex flex-col sm:flex-row items-center gap-8"
+                variants={fadeUp}
+              >
                 <div>
                   <div className="flex items-baseline gap-1">
                     <span className="text-sm font-bold text-slate-400">R$</span>
@@ -60,21 +94,28 @@ const PricingOnline: React.FC = () => {
                   </p>
                 </div>
 
-                <a
+                <motion.a
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={`${pricingOnline.cta} (abre no WhatsApp)`}
                   className={ctaClass}
+                  whileTap={reduceMotion ? undefined : { scale: 0.98 }}
                 >
                   {pricingOnline.cta}
-                </a>
-              </div>
-            </div>
+                </motion.a>
+              </motion.div>
+            </motion.div>
 
             {/* Media */}
-            <div className="relative h-64 lg:h-auto min-h-[400px]">
-              <img
+            <motion.div
+              className="relative h-64 lg:h-auto min-h-[400px]"
+              initial={reduceMotion ? false : { opacity: 0 }}
+              whileInView={reduceMotion ? undefined : { opacity: 1 }}
+              viewport={{ once: true, amount: 0.25 }}
+              transition={reduceMotion ? undefined : { duration: 0.6, ease: "easeOut" }}
+            >
+              <motion.img
                 src={pricingOnline.image.src}
                 alt={pricingOnline.image.alt}
                 width={1200}
@@ -83,6 +124,17 @@ const PricingOnline: React.FC = () => {
                 decoding="async"
                 className="absolute inset-0 w-full h-full object-cover grayscale opacity-40 hover:grayscale-0
                            transition-[filter,opacity] duration-1000 motion-reduce:transition-none"
+                // leve “ken burns” (só transform) — desliga em reduce motion
+                animate={
+                  reduceMotion
+                    ? undefined
+                    : { scale: [1.03, 1.07, 1.03], y: [0, -10, 0] }
+                }
+                transition={
+                  reduceMotion
+                    ? undefined
+                    : { duration: 12, ease: "linear", repeat: Infinity }
+                }
               />
 
               <div
@@ -94,13 +146,31 @@ const PricingOnline: React.FC = () => {
                 className="absolute inset-0 bg-gradient-to-t from-slate-50 dark:from-slate-900 via-transparent to-transparent lg:hidden"
               />
 
-              <UrgencyCard
-                title={pricingOnline.urgency.title}
-                subtitle={pricingOnline.urgency.subtitle}
-              />
-            </div>
+              <motion.div
+                className="absolute bottom-12 right-12"
+                initial={reduceMotion ? false : { opacity: 0, y: 10 }}
+                whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={reduceMotion ? undefined : { duration: 0.5, ease: "easeOut", delay: 0.1 }}
+                // flutuação discreta (transform only)
+                animate={reduceMotion ? undefined : { y: [0, -6, 0] }}
+                // separa o timing do animate, pra não conflitar
+                // (Framer usa merge; aqui fica suave)
+                // @ts-expect-error - ok em runtime, TS às vezes reclama da combinação
+                transition={{
+                  ...(reduceMotion
+                    ? {}
+                    : { duration: 3.2, ease: "easeInOut", repeat: Infinity }),
+                }}
+              >
+                <UrgencyCard
+                  title={pricingOnline.urgency.title}
+                  subtitle={pricingOnline.urgency.subtitle}
+                />
+              </motion.div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
