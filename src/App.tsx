@@ -21,7 +21,6 @@ export default function App() {
     return saved === "light" ? "light" : "dark";
   });
 
-  // aplica/remover classe "dark" no <html> e persiste
   useEffect(() => {
     const root = document.documentElement;
 
@@ -31,7 +30,6 @@ export default function App() {
     localStorage.setItem(THEME_STORAGE_KEY, theme);
   }, [theme]);
 
-  // reveal animation (IntersectionObserver)
   useEffect(() => {
     const elements = document.querySelectorAll<HTMLElement>(".reveal");
     if (!elements.length) return;
