@@ -227,8 +227,6 @@ export const COPY = {
   },
 } as const;
 
-/** PLANS / FEATURES / TESTIMONIALS (dados) */
-/** PLANS / FEATURES / TESTIMONIALS (dados) */
 export const IN_PERSON_PLANS: Plan[] = [
   {
     id: "bronze",
