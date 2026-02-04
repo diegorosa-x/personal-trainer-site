@@ -14,7 +14,7 @@ const About: React.FC = () => {
               <img
                 src={about.image.src}
                 alt={about.image.alt}
-                className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover"
               />
               <div className="absolute bottom-6 left-6 right-6 p-6 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border border-slate-200 dark:border-slate-700 rounded-xl">
                 <p className="text-sm font-bold text-accent uppercase tracking-widest mb-1">{about.cref.label}</p>

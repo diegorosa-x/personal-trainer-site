@@ -64,7 +64,7 @@ export const COPY = {
     titleLine2: "Personal Trainer",
 
     image: {
-      src: "https://images.unsplash.com/photo-1583454110551-21f2fa2adfcd?q=80&w=2070&auto=format&fit=crop",
+      src: "/assets/img/foto-perfil.jpeg",
       alt: "Higor Freire Personal Trainer",
     },
 
@@ -128,7 +128,8 @@ export const COPY = {
       "Olá Higor, gostaria de saber mais sobre a Consultoria Online!",
 
     image: {
-      src: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop",
+      //src: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop",
+      src: "/assets/img/personal-training.png",
       alt: "Mobile fitness training",
     },
 

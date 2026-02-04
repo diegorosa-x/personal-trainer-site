@@ -55,6 +55,8 @@ const Testimonials: React.FC = () => {
           ))}
         </div>
 
+        {/* Feature
+        
         <div className="reveal bg-slate-100 dark:bg-slate-950/50 border border-slate-200 dark:border-slate-800 rounded-[40px] p-8 md:p-12">
           <div className="text-center mb-12">
             <h3 className="text-2xl font-bold uppercase tracking-tight mb-4 text-slate-900 dark:text-white">Relatos em Vídeo</h3>
@@ -88,7 +90,7 @@ const Testimonials: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div>*/}
       </div>
     </section>
   );

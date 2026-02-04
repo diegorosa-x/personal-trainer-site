@@ -8,12 +8,16 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Fecha o menu ao clicar em um link (ou CTA) no mobile
+  const closeMobile = () => setMobileOpen(false);
 
   return (
     <header
@@ -36,6 +40,7 @@ const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
           </span>
         </div>
 
+        {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-widest text-slate-600 dark:text-slate-300">
           {COPY.nav.items.map((item) => (
             <a
@@ -49,19 +54,20 @@ const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
         </nav>
 
         <div className="flex items-center gap-3 sm:gap-4">
+          {/* Toggle theme (sempre visível) */}
           <button
             onClick={onToggleTheme}
             title={COPY.nav.toggleAria}
             aria-label={COPY.nav.toggleAria}
             className="
-      flex items-center gap-2
-      p-2 rounded-full
-      bg-slate-100 dark:bg-slate-900
-      text-slate-600 dark:text-slate-400
-      hover:text-accent
-      transition-all duration-200
-      active:scale-95
-    "
+              flex items-center gap-2
+              p-2 rounded-full
+              bg-slate-100 dark:bg-slate-900
+              text-slate-600 dark:text-slate-400
+              hover:text-accent
+              transition-all duration-200
+              active:scale-95
+            "
           >
             {theme === "dark" ? (
               <svg
@@ -93,24 +99,115 @@ const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
               </svg>
             )}
 
-            {/* Mobile: texto visível. Desktop: escondido */}
             <span className="text-xs font-bold uppercase tracking-widest md:hidden">
               Tema
             </span>
           </button>
 
+          {/* CTA: só no desktop */}
           <a
             href="#contato"
             className="
-      bg-accent text-white
-      px-5 sm:px-6 py-2
-      rounded-full
-      text-sm font-bold uppercase tracking-wide
-      hover:bg-accent-hover
-      transition-all
-      active:scale-95
-      shadow-lg shadow-accent/20
-    "
+              hidden md:inline-flex
+              bg-accent text-white
+              px-5 sm:px-6 py-2
+              rounded-full
+              text-sm font-bold uppercase tracking-wide
+              hover:bg-accent-hover
+              transition-all
+              active:scale-95
+              shadow-lg shadow-accent/20
+            "
+          >
+            {COPY.nav.cta}
+          </a>
+
+          {/* Hamburger: só no mobile */}
+          <button
+            type="button"
+            onClick={() => setMobileOpen((v) => !v)}
+            aria-label="Abrir menu"
+            aria-expanded={mobileOpen}
+            className="
+              md:hidden
+              p-2 rounded-full
+              bg-slate-100 dark:bg-slate-900
+              text-slate-700 dark:text-slate-200
+              hover:text-accent
+              transition-all duration-200
+              active:scale-95
+            "
+          >
+            {mobileOpen ? (
+              // X icon
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            ) : (
+              // Hamburger icon
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile menu dropdown */}
+      <div
+        className={`
+          md:hidden overflow-hidden transition-all duration-300
+          ${mobileOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"}
+        `}
+      >
+        <div className="mx-6 mt-4 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md shadow-xl p-4">
+          <nav className="flex flex-col gap-3 text-sm font-semibold uppercase tracking-widest text-slate-700 dark:text-slate-200">
+            {COPY.nav.items.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={closeMobile}
+                className="py-2 px-2 rounded-lg hover:text-accent hover:bg-slate-100/60 dark:hover:bg-slate-900/60 transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          <a
+            href="#contato"
+            onClick={closeMobile}
+            className="
+              mt-4 inline-flex w-full justify-center
+              bg-accent text-white
+              px-6 py-3
+              rounded-full
+              text-sm font-bold uppercase tracking-wide
+              hover:bg-accent-hover
+              transition-all
+              active:scale-95
+              shadow-lg shadow-accent/20
+            "
           >
             {COPY.nav.cta}
           </a>
