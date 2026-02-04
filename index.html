@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Higor Freire - Personal Trainer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              accent: {
+                DEFAULT: '#139CFF',
+                hover: '#0B6FD6',
+                soft: 'rgba(19,156,255, 0.18)',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+            transition: background-color 300ms ease, color 300ms ease;
+        }
+        .font-oswald {
+            font-family: 'Oswald', sans-serif;
+        }
+        
+        .reveal {
+          opacity: 0;
+          transform: translateY(16px);
+          transition: opacity 600ms ease-out, transform 600ms ease-out;
+        }
+        .reveal.visible {
+          opacity: 1;
+          transform: translateY(0);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .reveal {
+            transition: none;
+            opacity: 1;
+            transform: none;
+          }
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/"
+  }
+}
+</script>
+</head>
+<body class="bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-50">
+    <div id="root"></div>
+</body>
+</html>
