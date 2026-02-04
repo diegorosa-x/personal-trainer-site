@@ -29,7 +29,7 @@ export const COPY: Copy = {
   },
 
   hero: {
-    badge: "Especialista em Performance",
+    badge: "",
     titlePrefix: "Transforme seu",
     titleHighlight: "corpo",
     titleSuffix: ", supere seus limites.",
