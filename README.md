@@ -8,7 +8,7 @@ O projeto foi desenvolvido com **React + Vite + TypeScript + Tailwind CSS**, seg
 
 ## 🔥 Preview
 
-👉 **Demo:** personal-trainer-site-flax.vercel.app
+👉 **Demo:** [personal-trainer-site](https://personal-trainer-site-flax.vercel.app/)
 
 Landing page moderna com foco em performance, conversão e experiência mobile-first.
 
