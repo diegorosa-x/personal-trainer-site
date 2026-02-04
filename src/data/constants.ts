@@ -30,7 +30,7 @@ export const COPY = {
   },
 
   hero: {
-    badge: "Especialista em treinos de força, hipertrofia e emagrecimento",
+    badge: "Especialista em Performance",
     titlePrefix: "Transforme seu",
     titleHighlight: "corpo",
     titleSuffix: ", supere seus limites.",
