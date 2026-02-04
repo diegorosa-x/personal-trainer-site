@@ -1,12 +1,14 @@
-# Personal Trainer Site
+# 🏋️‍♂️ Higor Freire – Personal Trainer Website
 
-Um **site one-page profissional** criado com **Next.js + Tailwind CSS** para divulgar serviços de personal trainer, apresentar planos de treino, consultoria online, formas de pagamento, depoimentos e facilitar o contato via WhatsApp.
+Site profissional, moderno e focado em conversão para **Higor Freire**, Personal Trainer especializado em **treinos de força, hipertrofia e emagrecimento**.
+
+O projeto foi desenvolvido com **React + Vite + TypeScript + Tailwind CSS**, seguindo uma estética **fitness premium**, dark mode por padrão e animações sutis para melhorar a experiência do usuário.
 
 ---
 
-## 📌 Visão Geral
+## 🔥 Preview
 
-Este projeto foi desenvolvido para servir como um **site institucional responsivo** para personal trainer, com foco em:
+Landing page moderna com foco em performance, conversão e experiência mobile-first.
 
 - Exibição clara dos planos de treino
 - Destaque para consultoria online
@@ -16,56 +18,67 @@ Este projeto foi desenvolvido para servir como um **site institucional responsiv
 
 ---
 
-## 🧱 Tecnologias Utilizadas
+## ✨ Features
 
-| Tecnologia | Função |
-|------------|--------|
-| **Next.js** | Framework React para aplicações web modernas |
-| **Tailwind CSS** | Utility-first CSS para estilização rápida |
-| **Font Awesome** | Ícones vetoriais no React |
-| **TypeScript** | Segurança de tipos e melhores práticas |
-| **Vercel** | Plataforma recomendada para deploy |
+- ✅ Design premium fitness (dark mode por padrão)
+- ✅ Totalmente responsivo (mobile first)
+- ✅ Seções componentizadas e reutilizáveis
+- ✅ Animações sutis (scroll reveal e hover)
+- ✅ Dark / Light mode com persistência
+- ✅ Conteúdo centralizado em constants.ts
+- ✅ Integração direta com WhatsApp
+- ✅ Código limpo e escalável (TypeScript)
 
 ---
 
-## 📁 Estrutura de Pastas
+## 🛠️ Tecnologias Utilizadas
+
+| Tecnologia        | Função |
+|------------------|--------|
+| **React + Vite** | Framework e bundler para aplicações web modernas e rápidas |
+| **TypeScript**   | Tipagem estática, segurança e melhores práticas |
+| **Tailwind CSS** | Utility-first CSS para estilização rápida e consistente |
+| **Framer Motion**| Animações sutis e performáticas |
+| **Lucide React** | Ícones SVG modernos e leves |
+| **Git**          | Controle de versão |
+| **Vercel**       | Plataforma recomendada para deploy |
+
+---
+
+## 🧱 Estrutura do Projeto
 
 ```text
-personal-trainer-site/
-├─ public/
-│ └─ images/ # Imagens do projeto
-├─ src/
-│ ├─ app/
-│ │ ├─ globals.css # Estilos globais
-│ │ ├─ layout.tsx # Layout base
-│ │ └─ page.tsx # Página principal
-│ ├─ components/
-│ │ ├─ Hero/
-│ │ ├─ About/
-│ │ ├─ Plans/
-│ │ ├─ Coaching/
-│ │ ├─ Features/
-│ │ ├─ PaymentOptions/
-│ │ ├─ Testimonials/
-│ │ └─ Contact/
-├─ tailwind.config.js
-├─ postcss.config.js
-├─ package.json
-├─ tsconfig.json
-└─ README.md
+├── public/
+│   └── logo.jpeg
+│
+├── src/
+│   ├── components/
+│   │   ├── Header.tsx
+│   │   └── Footer.tsx
+│   │
+│   ├── sections/
+│   │   ├── Hero.tsx
+│   │   ├── About.tsx
+│   │   ├── Testimonials.tsx
+│   │   ├── PricingInPerson.tsx
+│   │   ├── PricingOnline.tsx
+│   │   ├── PaymentMethods.tsx
+│   │   └── ContactSection.tsx
+│   │
+│   ├── data/
+│   │   └── constants.ts
+│   │
+│   ├── types/
+│   │   └── types.ts
+│   │
+│   ├── App.tsx
+│   └── main.tsx
+│
+├── index.html
+├── package.json
+└── README.md
 ```
 
----
-
-## 🚀 Funcionalidades
-
-✔ **Hero** com foto, nome e CTA para WhatsApp  
-✔ **Seção Sobre** com descrição profissional  
-✔ **Planos de Treino** listados com cards  
-✔ **Consultoria Online** com botão de contato  
-✔ **Itens Inclusos** na consultoria  
-✔ **Formas de Pagamento** em destaque  
-✔ **Depoimentos** de clientes  
 ✔ **Contato** com chamada principal para WhatsApp
 
 ---
