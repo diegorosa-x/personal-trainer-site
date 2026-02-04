@@ -23,7 +23,6 @@ export const COPY = {
       { href: "#consultoria", label: "Consultoria" },
       { href: "#pagamento", label: "Pagamento" },
       { href: "#contato", label: "Contato" },
-
     ],
     cta: "Começar",
     toggleAria: "Alternar tema",
