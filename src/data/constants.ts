@@ -1,4 +1,4 @@
-import type { Plan, Testimonial } from "../types/types.ts";
+import { Copy, InPersonPlan, Testimonial } from "../types";
 
 export const WHATSAPP_NUMBER = "5519982471193";
 
@@ -7,7 +7,7 @@ export const WHATSAPP_LINK = {
     `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
 };
 
-export const COPY = {
+export const COPY: Copy = {
   site: {
     trainerName: "Higor Freire",
     trainerRole: "Personal Trainer & Coach",
@@ -227,7 +227,7 @@ export const COPY = {
   },
 } as const;
 
-export const IN_PERSON_PLANS: Plan[] = [
+export const IN_PERSON_PLANS: readonly InPersonPlan[] = [
   {
     id: "bronze",
     name: "Plano Bronze",
@@ -263,7 +263,7 @@ export const IN_PERSON_PLANS: Plan[] = [
   },
 ];
 
-export const ONLINE_FEATURES = [
+export const ONLINE_FEATURES: readonly string[] = [
   "2 meses de treino individualizado",
   "Treino 100% personalizado",
   "Flexibilidade para treinar em casa ou na academia",
