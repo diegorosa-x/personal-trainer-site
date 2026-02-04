@@ -7,7 +7,7 @@ import About from "./sections/About";
 import Testimonials from "./sections/Testimonials";
 import PricingInPerson from "./sections/PricingInPerson/PricingInPerson";
 import PaymentMethods from "./sections/PaymentMethods";
-import PricingOnline from "./sections/PrincingOnline";
+import PricingOnline from "./sections/PrincingOnline/PrincingOnline";
 import ContactSection from "./sections/ContactSection";
 import Header from "./features/header/components/Header";
 
