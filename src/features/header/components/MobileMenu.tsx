@@ -12,9 +12,10 @@ export default function MobileMenu({
 }: {
   open: boolean;
   menuId: string;
-  menuButtonRef: React.RefObject<HTMLButtonElement>;
-  mobileMenuRef: React.RefObject<HTMLDivElement>;
-  firstLinkRef: React.RefObject<HTMLAnchorElement>;
+  menuButtonRef: React.RefObject<HTMLButtonElement | null>;
+  mobileMenuRef: React.RefObject<HTMLDivElement | null>;
+  firstLinkRef: React.RefObject<HTMLAnchorElement | null>;
+
   toggle: () => void;
   close: () => void;
 }) {
@@ -40,12 +41,34 @@ export default function MobileMenu({
         "
       >
         {open ? (
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
           </svg>
         ) : (
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
         )}
       </button>
@@ -62,7 +85,10 @@ export default function MobileMenu({
         `}
       >
         <div className="mt-4 rounded-2xl border border-slate-200/60 dark:border-slate-800/60 bg-white/90 dark:bg-slate-950/90 backdrop-blur-md shadow-xl p-4">
-          <nav aria-label="Navegação mobile" className="flex flex-col gap-3 text-sm font-semibold uppercase tracking-widest text-slate-700 dark:text-slate-200">
+          <nav
+            aria-label="Navegação mobile"
+            className="flex flex-col gap-3 text-sm font-semibold uppercase tracking-widest text-slate-700 dark:text-slate-200"
+          >
             {COPY.nav.items.map((item, idx) => (
               <a
                 key={item.href}

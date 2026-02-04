@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 
 import Hero from "./sections/Hero";
@@ -10,6 +9,7 @@ import PricingInPerson from "./sections/PricingInPerson";
 import PaymentMethods from "./sections/PaymentMethods";
 import PricingOnline from "./sections/PrincingOnline";
 import ContactSection from "./sections/ContactSection";
+import Header from "./features/header/components/Header";
 
 type Theme = "dark" | "light";
 
