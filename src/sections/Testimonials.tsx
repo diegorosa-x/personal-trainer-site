@@ -1,14 +1,17 @@
 import React from "react";
-import { TESTIMONIALS } from "../data/constants.ts";
+import { COPY, TESTIMONIALS } from "../data/constants.ts";
 
 const STARS = [1, 2, 3, 4, 5] as const;
 
 const Testimonials: React.FC = () => {
+  const { testimonials } = COPY;
+
   const sectionTitleId = "testimonials-title";
   const ratingLabel = "Avaliação: 5 de 5";
 
   const sectionClass =
-    "py-24 bg-slate-50 dark:bg-slate-900/30 relative overflow-hidden transition-colors duration-300 motion-reduce:transition-none scroll-mt-24";
+    "py-24 bg-slate-50 dark:bg-slate-900/30 relative overflow-hidden " +
+    "transition-colors duration-300 motion-reduce:transition-none scroll-mt-24";
 
   const cardClass =
     "bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 rounded-[32px] shadow-sm flex flex-col group " +
@@ -25,41 +28,38 @@ const Testimonials: React.FC = () => {
 
   return (
     <section
-      id="resultados"
+      id={testimonials.sectionId}
       aria-labelledby={sectionTitleId}
       className={sectionClass}
     >
       <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+        <header className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="max-w-2xl">
             <h2
               id={sectionTitleId}
               className="text-4xl md:text-5xl font-black font-oswald uppercase mb-4 tracking-tight text-slate-900 dark:text-white"
             >
-              Resultados de quem{" "}
-              <span className="text-accent italic">Treina Sério</span>
+              {testimonials.titlePrefix}{" "}
+              <span className="text-accent italic">
+                {testimonials.titleHighlight}
+              </span>
             </h2>
 
             <p className="text-slate-600 dark:text-slate-400 text-lg leading-relaxed">
-              Transformações reais de clientes que confiaram no método e
-              alcançaram seus objetivos de força, estética e saúde.
+              {testimonials.description}
             </p>
           </div>
 
           <div className="bg-accent/10 border border-accent/20 p-4 rounded-2xl hidden lg:block">
             <p className="text-accent font-bold text-sm uppercase tracking-widest">
-              A prova de que funciona
+              {testimonials.proofPill}
             </p>
           </div>
-        </div>
+        </header>
 
         <ul className="grid md:grid-cols-3 gap-8 mb-20" role="list">
-          {TESTIMONIALS.map((t, idx) => (
-            <li
-              key={t.id}
-              className={cardClass}
-              style={{ ["--delay" as any]: `${idx * 100}ms` }}
-            >
+          {TESTIMONIALS.map((t) => (
+            <li key={t.id} className={cardClass}>
               <div className="flex items-center gap-4 mb-6">
                 <img
                   src={t.photo}
