@@ -6,6 +6,7 @@ export interface Plan {
   totalClasses: string;
   price: number;
   featured?: boolean;
+  description?: string;
 }
 
 export interface OnlineConsultancyFeature {
