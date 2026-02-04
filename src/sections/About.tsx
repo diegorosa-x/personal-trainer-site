@@ -9,6 +9,27 @@ const About: React.FC = () => {
   const cardBase =
     "p-6 bg-slate-50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 rounded-2xl";
 
+  const highlightClass = "text-slate-900 dark:text-white font-semibold";
+
+  // Mantém o padrão atual: destaca p1 no 1º parágrafo e p2 no 2º (sem hardcode de texto)
+  const renderParagraph = (text: string, highlight?: string) => {
+    if (!highlight) return text;
+
+    const idx = text.indexOf(highlight);
+    if (idx === -1) return text;
+
+    const before = text.slice(0, idx);
+    const after = text.slice(idx + highlight.length);
+
+    return (
+      <>
+        {before}
+        <span className={highlightClass}>{highlight}</span>
+        {after}
+      </>
+    );
+  };
+
   return (
     <section
       id={about.sectionId}
@@ -59,23 +80,12 @@ const About: React.FC = () => {
             </h2>
 
             <div className="space-y-6 text-slate-600 dark:text-slate-300 text-lg leading-relaxed">
-              <p>
-                Minha missão é guiar você em uma{" "}
-                <span className="text-slate-900 dark:text-white font-semibold">
-                  {about.highlights.p1}
-                </span>
-                . Não é apenas sobre treinar, é sobre transformar seu estilo de
-                vida e conquistar a melhor version do seu corpo.
-              </p>
+              {about.paragraphs.map((text, index) => {
+                const highlight =
+                  index === 0 ? about.highlights.p1 : index === 1 ? about.highlights.p2 : undefined;
 
-              <p>
-                Com foco em{" "}
-                <span className="text-slate-900 dark:text-white font-semibold">
-                  {about.highlights.p2}
-                </span>
-                , desenvolvo metodologias que unem ciência e prática para
-                acelerar sua evolução de forma segura e sustentável.
-              </p>
+                return <p key={text}>{renderParagraph(text, highlight)}</p>;
+              })}
             </div>
 
             <div className="grid grid-cols-2 gap-6 mt-12">

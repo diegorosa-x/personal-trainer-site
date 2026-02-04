@@ -73,13 +73,13 @@ export const COPY: Copy = {
     },
 
     paragraphs: [
-      "Minha missão é guiar você em uma jornada de resultados reais. Não é apenas sobre treinar, é sobre transformar seu estilo de vida e conquistar a melhor version do seu corpo.",
-      "Com foco em Emagrecimento, Ganho de Massa e Qualidade de Vida, desenvolvo metodologias que unem ciência e prática para acelerar sua evolução de forma segura e sustentável.",
+      "Minha missão é guiar você em uma jornada de resultados reais. Não é apenas sobre treinar, é sobre transformar seu estilo de vida e conquistar a melhor versão do seu corpo.",
+      "Com foco em emagrecimento, ganho de massa e qualidade de vida, desenvolvo metodologias que unem ciência e prática para acelerar sua evolução de forma segura e sustentável.",
     ],
 
     highlights: {
       p1: "jornada de resultados reais",
-      p2: "Emagrecimento, Ganho de Massa e Qualidade de Vida",
+      p2: "emagrecimento, ganho de massa e qualidade de vida",
     },
 
     stats: [
