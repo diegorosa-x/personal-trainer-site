@@ -6,8 +6,8 @@ import MobileMenu from "./MobileMenu";
 import ThemeToggle from "./ThemeToggle";
 import SkipToContent from "./SkipToContent";
 
-import { COPY } from "../../../copy/copy";
 import { useMobileMenuA11y } from "../hooks/useMobileMenuA11y";
+import { NAV_COPY } from "../../../copy";
 
 interface HeaderProps {
   theme: "dark" | "light";
@@ -73,7 +73,7 @@ const Header: React.FC<HeaderProps> = ({ theme, onToggleTheme }) => {
                 motion-reduce:transition-none motion-reduce:transform-none
               "
             >
-              {COPY.nav.cta}
+              {NAV_COPY.cta}
             </a>
 
             {/* Menu mobile */}
