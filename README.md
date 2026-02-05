@@ -52,36 +52,93 @@ Landing page moderna com foco em performance, conversão e experiência mobile-f
 
 ```text
 src/
-├── components/
-│   └── Footer.tsx
+├─ app/
+│  ├─ App.tsx
+│  └─ main.tsx
 │
-├── features/
-│   └── header/
-│       ├── components/
-│       ├── hooks/
-│       └── index.ts
+├─ shared/
+│  ├─ whatsapp.ts        # utilidades globais (cross-section)
+│  └─ constants.ts       # só coisas realmente globais (ex: números, env)
 │
-├── sections/
-│   ├── Hero.tsx
-│   ├── About.tsx
-│   ├── Testimonials.tsx
-│   ├── PricingInPerson/
-│   ├── PricingOnline/
-│   ├── PaymentMethods.tsx
-│   └── ContactSection.tsx
+├─ copy/
+│  ├─ site.copy.ts
+│  ├─ nav.copy.ts
+│  ├─ footer.copy.ts
+│  └─ index.ts           # agrega o Copy final
 │
-├── data/
-│   └── constants.ts
+├─ types/
+│  ├─ copy.ts            # tipo Copy (contrato global)
+│  └─ index.ts
 │
-├── types/
-│   ├── pricing.ts
-│   ├── testimonials.ts
-│   ├── payments.ts
-│   ├── copy.ts
-│   └── index.ts
+├─ features/
+│  └─ header/
+│     ├─ components/
+│     ├─ hooks/
+│     └─ index.ts
 │
-├── App.tsx
-└── main.tsx
+├─ sections/
+│  ├─ Hero/
+│  │  ├─ Hero.tsx
+│  │  ├─ HeroBackground.tsx
+│  │  ├─ HeroBadgeTicker.tsx
+│  │  ├─ copy.ts
+│  │  ├─ types.ts
+│  │  └─ index.ts
+│  │
+│  ├─ About/
+│  │  ├─ About.tsx
+│  │  ├─ AboutMedia.tsx
+│  │  ├─ AboutContent.tsx
+│  │  ├─ copy.ts
+│  │  ├─ types.ts
+│  │  └─ index.ts
+│  │
+│  ├─ PricingInPerson/
+│  │  ├─ PricingInPerson.tsx
+│  │  ├─ PlanCard.tsx
+│  │  ├─ data.ts
+│  │  ├─ copy.ts
+│  │  ├─ types.ts
+│  │  └─ index.ts
+│  │
+│  ├─ PricingOnline/
+│  │  ├─ PricingOnline.tsx
+│  │  ├─ FeatureList.tsx
+│  │  ├─ UrgencyCard.tsx
+│  │  ├─ data.ts
+│  │  ├─ copy.ts
+│  │  ├─ types.ts
+│  │  └─ index.ts
+│  │
+│  ├─ Testimonials/
+│  │  ├─ Testimonials.tsx
+│  │  ├─ Carousel.tsx
+│  │  ├─ Controls.tsx
+│  │  ├─ Dots.tsx
+│  │  ├─ data.ts
+│  │  ├─ copy.ts
+│  │  ├─ types.ts
+│  │  └─ index.ts
+│  │
+│  ├─ PaymentMethods/
+│  │  ├─ PaymentMethods.tsx
+│  │  ├─ copy.ts
+│  │  ├─ types.ts
+│  │  └─ index.ts
+│  │
+│  └─ Contact/
+│     ├─ ContactSection.tsx
+│     ├─ copy.ts
+│     ├─ types.ts
+│     └─ index.ts
+│
+└─ components/
+   └─ Footer/
+      ├─ Footer.tsx
+      ├─ copy.ts
+      ├─ types.ts
+      └─ index.ts
+
 ```
 
 ## 🚀 Como rodar o projeto
