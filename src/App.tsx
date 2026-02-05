@@ -4,7 +4,6 @@ import Footer from "./components/Footer";
 
 import Hero from "./sections/Hero/Hero";
 import About from "./sections/About/About";
-import Testimonials from "./sections/Testimonials/Testimonials";
 import PricingInPerson from "./sections/PricingInPerson/PricingInPerson";
 import PaymentMethods from "./sections/PaymentMethods/PaymentMethods";
 import PricingOnline from "./sections/PrincingOnline/PrincingOnline";
@@ -58,7 +57,6 @@ export default function App() {
       <main>
         <Hero />
         <About />
-        <Testimonials />
         <PricingInPerson />
         <PricingOnline />
         <PaymentMethods />
