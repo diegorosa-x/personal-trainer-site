@@ -1,29 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRightIcon, CheckIcon } from "./Icons";
-import { formatBRL } from "./utils";
-
-export type InPersonPlan = {
-  id: string | number;
-  name: string;
-  frequency: string;
-  totalClasses: string;
-  price: number;
-  description?: string;
-  featured?: boolean;
-};
-
-type Props = {
-  plan: InPersonPlan;
-  idx: number;
-  reduceMotion: boolean;
-
-  perks: readonly string[];
-  href: string;
-
-  buttonLabel: string;
-  featuredBadge: string;
-};
+import { Props } from "./types";
 
 export const PlanCard: React.FC<Props> = ({
   plan,
@@ -67,7 +45,9 @@ export const PlanCard: React.FC<Props> = ({
       initial={reduceMotion ? false : { opacity: 0, y: 24 }}
       whileInView={reduceMotion ? undefined : { opacity: 1, y: 0 }}
       viewport={reduceMotion ? undefined : { once: true, amount: 0.2 }}
-      transition={reduceMotion ? undefined : { delay: idx * 0.08, duration: 0.45 }}
+      transition={
+        reduceMotion ? undefined : { delay: idx * 0.08, duration: 0.45 }
+      }
       className={`${cardBase} ${isFeatured ? featuredCard : regularCard}`}
     >
       <article className="flex flex-col h-full">
@@ -80,34 +60,78 @@ export const PlanCard: React.FC<Props> = ({
           </div>
         )}
 
+        {/* HEADER */}
         <div className="mb-6">
           <h3 className="text-xl font-bold mb-1 text-slate-900 dark:text-white">
             {plan.name}
           </h3>
-          <div className="text-sm font-semibold text-accent uppercase tracking-wider">
-            {plan.frequency}
-          </div>
-          <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">
-            {plan.totalClasses}
-          </div>
+
+          {plan.description && (
+            <p className="text-sm text-slate-600 dark:text-slate-300 mt-3">
+              {plan.description}
+            </p>
+          )}
         </div>
 
-        {plan.description && (
-          <p className="text-sm text-slate-600 dark:text-slate-300 mb-8 grow">
-            {plan.description}
-          </p>
-        )}
+        {/* PREÇO POR AULA (GRANDE) */}
+        <div className="mb-6">
+          <div className="flex items-baseline gap-2">
+            <span
+              className={`text-5xl font-black ${
+                plan.billingType === "monthly"
+                  ? "text-accent"
+                  : "text-slate-900 dark:text-white"
+              }`}
+            >
+              R${plan.ratePerClass}
+            </span>
+            <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">
+              /aula
+            </span>
+          </div>
 
+          {plan.billingType === "monthly" ? (
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+              *Desconto mensal válido a partir de 3x na semana.
+            </p>
+          ) : (
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
+              *Sem desconto
+            </p>
+          )}
+        </div>
+
+        {/* LISTA DE FREQUÊNCIAS + TOTAL MENSAL */}
         <div className="mb-8">
-          <span className="text-sm text-slate-500 dark:text-slate-400">R$</span>
-          <span className="text-4xl font-black ml-1 text-slate-900 dark:text-white">
-            {formatBRL(plan.price)}
-          </span>
-          <span className="text-xs text-slate-500 dark:text-slate-400 block">
-            por mês
-          </span>
+          <h4 className="text-sm font-bold text-slate-900 dark:text-white mb-3">
+            Frequências
+          </h4>
+
+          <ul className="space-y-2">
+            {plan.options.map((opt) => (
+              <li
+                key={opt.label}
+                className="flex items-center justify-between gap-4"
+              >
+                <span className="text-sm text-slate-600 dark:text-slate-300">
+                  {opt.label}
+                </span>
+
+                <span
+                  className={`text-sm font-bold ${
+                    opt.disabled
+                      ? "text-slate-500 dark:text-slate-400"
+                      : "text-slate-900 dark:text-white"
+                  }`}
+                >
+                  {opt.totalLabel}
+                </span>
+              </li>
+            ))}
+          </ul>
         </div>
 
+        {/* PERKS */}
         <ul className="space-y-3 mb-8 text-sm text-slate-700 dark:text-slate-200">
           {perks.map((perk) => (
             <li key={perk} className="flex items-center gap-2">
@@ -117,19 +141,21 @@ export const PlanCard: React.FC<Props> = ({
           ))}
         </ul>
 
+        {/* CTA */}
         <a
           href={href}
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`${buttonLabel} — ${plan.name} (abre no WhatsApp)`}
-          className={`${buttonBase} ${isFeatured ? featuredButton : regularButton} relative overflow-hidden`}
+          className={`${buttonBase} ${
+            isFeatured ? featuredButton : regularButton
+          } relative overflow-hidden`}
         >
           <span className="relative z-10 flex items-center gap-2">
             {buttonLabel}
             <ArrowRightIcon className="w-4 h-4" />
           </span>
 
-          {/* Shine em CSS (sem JS) */}
           <span
             aria-hidden="true"
             className="absolute inset-0 bg-white/15 -translate-x-full group-hover:translate-x-[140%]

@@ -1,9 +1,10 @@
 import React from "react";
 import { useReducedMotion } from "framer-motion";
-import { PlanCard, type InPersonPlan } from "./PlanCard";
+import { PlanCard } from "./PlanCard";
 import { buildPlanWhatsappHref } from "./utils";
 import { IN_PERSON_PLANS, PRICING_IN_PERSON_COPY } from "./copy";
 import { WHATSAPP_LINK } from "../../shared/whatsapp";
+import { InPersonPlan } from "./types";
 
 const PricingInPerson: React.FC = () => {
   const pricingInPerson = PRICING_IN_PERSON_COPY;
@@ -34,7 +35,11 @@ const PricingInPerson: React.FC = () => {
           </p>
         </header>
 
-        <ul className="grid md:grid-cols-2 lg:grid-cols-4 gap-8" role="list">
+        <ul
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center max-w-4xl mx-auto"
+          role="list"
+        >
+          {" "}
           {(IN_PERSON_PLANS as InPersonPlan[]).map((plan, idx) => {
             const href = buildPlanWhatsappHref(
               WHATSAPP_LINK.whatsapp,

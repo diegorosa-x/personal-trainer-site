@@ -1,52 +1,47 @@
 import { InPersonPlan, PricingInPersonCopy } from "./types";
 
-
 export const PRICING_IN_PERSON_COPY = {
   sectionId: "presencial",
   titlePrefix: "Acompanhamento",
   titleHighlight: "Presencial",
   description:
-    "Para quem busca máxima performance e segurança, com supervisão direta em cada exercício, ajustes em tempo real e técnica perfeita para acelerar resultados.",
-  featuredBadge: "Mais Popular",
+    "Escolha a forma de pagamento e a frequência semanal. Quanto maior o compromisso, melhor o valor por aula.",
+  featuredBadge: "MAIS POPULAR",
   buttonLabel: "Escolher",
-  quote:
-    '"O acompanhamento definitivo para uma transformação completa de corpo e mente."',
+  quote: '"Consistência no treino gera resultado. Compromisso gera vantagem."',
   perks: ["Supervisão direta", "Ajustes técnicos", "Material exclusivo"],
-  whatsappTextPrefix: "Olá Higor, gostaria de saber mais sobre o",
+  whatsappTextPrefix: "Olá Higor, quero saber mais sobre o",
 } satisfies PricingInPersonCopy;
 
 export const IN_PERSON_PLANS: readonly InPersonPlan[] = [
-  {
-    id: "bronze",
-    name: "Plano Bronze",
-    frequency: "2x na semana",
-    totalClasses: "8 aulas / mês",
-    price: 399.99,
-    description: "Ideal para manutenção e início gradual.",
-  },
-  {
-    id: "prata",
-    name: "Plano Prata",
-    frequency: "3x na semana",
-    totalClasses: "12 aulas / mês",
-    price: 599.99,
-    description: "Resultados consistentes e técnica aprimorada.",
+   {
+    id: "monthly",
+    name: "Plano Mensal",
+    description: "Melhor custo-benefício pagando o mês fechado.",
     featured: true,
+    billingType: "monthly",
+    ratePerClass: 45,
+    options: [
+      // 2x sem desconto no mensal (como você disse)
+      { label: "2x/sem (8 aulas)", classesPerMonth: 8, totalLabel: "sem desconto", disabled: true },
+
+      { label: "3x/sem (12 aulas)", classesPerMonth: 12, totalLabel: "R$540/mês", totalValue: 540 },
+      { label: "4x/sem (16 aulas)", classesPerMonth: 16, totalLabel: "R$720/mês", totalValue: 720 },
+      { label: "5x/sem (20 aulas)", classesPerMonth: 20, totalLabel: "R$900/mês", totalValue: 900 },
+    ],
   },
   {
-    id: "ouro",
-    name: "Plano Ouro",
-    frequency: "4x na semana",
-    totalClasses: "16 aulas / mês",
-    price: 799.99,
-    description: "Transformação acelerada e alta performance.",
+    id: "weekly",
+    name: "Plano Semanal",
+    description: "Mais flexível, pagamento semanal.",
+    billingType: "weekly",
+    ratePerClass: 50,
+    options: [
+      { label: "2x/sem (8 aulas)", classesPerMonth: 8, totalLabel: "R$400/mês", totalValue: 400 },
+      { label: "3x/sem (12 aulas)", classesPerMonth: 12, totalLabel: "R$600/mês", totalValue: 600 },
+      { label: "4x/sem (16 aulas)", classesPerMonth: 16, totalLabel: "R$800/mês", totalValue: 800 },
+      { label: "5x/sem (20 aulas)", classesPerMonth: 20, totalLabel: "R$1.000/mês", totalValue: 1000 },
+    ],
   },
-  {
-    id: "plus",
-    name: "Plano Plus",
-    frequency: "5x na semana",
-    totalClasses: "20 aulas / mês",
-    price: 999.99,
-    description: "Transformação completa de corpo e mente.",
-  },
+ 
 ];
