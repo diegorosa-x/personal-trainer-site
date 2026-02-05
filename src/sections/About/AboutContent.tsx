@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import type { AboutCopy } from "../../types";
+import { AboutCopy } from "./types";
 
 type Props = {
   about: AboutCopy;

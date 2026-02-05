@@ -1,11 +1,12 @@
 import React from "react";
-import { COPY, WHATSAPP_LINK } from "../../data/constants.ts";
 import { motion, useReducedMotion } from "framer-motion";
 import { HeroBadgeTicker } from "./HeroBadgeTicker";
 import { HeroBackground } from "./HeroBackground.temp.tsx";
+import { WHATSAPP_LINK } from "../../shared/whatsapp.ts";
+import { HERO_COPY } from "./copy.ts";
 
 const Hero: React.FC = () => {
-  const { hero } = COPY;
+  const hero = HERO_COPY;
   const reduceMotion = useReducedMotion();
 
   const whatsappUrl = WHATSAPP_LINK.whatsapp(hero.whatsappText);

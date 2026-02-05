@@ -1,12 +1,13 @@
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { COPY, WHATSAPP_LINK, ONLINE_FEATURES } from "../../data/constants.ts";
 import { FeatureList } from "./FeatureList";
 import { UrgencyCard } from "./UrgencyCard";
+import { ONLINE_FEATURES, PRICING_ONLINE_COPY } from "./copy.ts";
+import { WHATSAPP_LINK } from "../../shared/whatsapp.ts";
 
 const PricingOnline: React.FC = () => {
-  const { pricingOnline } = COPY;
+  const pricingOnline = PRICING_ONLINE_COPY;
   const reduceMotion = useReducedMotion();
 
   const whatsappUrl = WHATSAPP_LINK.whatsapp(pricingOnline.whatsappText);

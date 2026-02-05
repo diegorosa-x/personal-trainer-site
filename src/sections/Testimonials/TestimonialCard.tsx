@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import type { Testimonial } from "../../types";
-import { STARS } from "./data";
+import { STARS } from "./copy";
+import { Testimonial } from "./types";
 
 type Props = {
   t: Testimonial;

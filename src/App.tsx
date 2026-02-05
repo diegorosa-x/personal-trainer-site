@@ -6,9 +6,9 @@ import Hero from "./sections/Hero/Hero";
 import About from "./sections/About/About";
 import Testimonials from "./sections/Testimonials/Testimonials";
 import PricingInPerson from "./sections/PricingInPerson/PricingInPerson";
-import PaymentMethods from "./sections/PaymentMethods";
+import PaymentMethods from "./sections/PaymentMethods/PaymentMethods";
 import PricingOnline from "./sections/PrincingOnline/PrincingOnline";
-import ContactSection from "./sections/ContactSection";
+import ContactSection from "./sections/Contact/ContactSection";
 import Header from "./features/header/components/Header";
 
 type Theme = "dark" | "light";

@@ -1,5 +1,4 @@
-import React from "react";
-import { COPY } from "../../../data/constants";
+import { NAV_COPY } from "../../../copy";
 
 export default function ThemeToggle({
   theme,
@@ -12,8 +11,8 @@ export default function ThemeToggle({
     <button
       onClick={onToggleTheme}
       type="button"
-      title={COPY.nav.toggleAria}
-      aria-label={COPY.nav.toggleAria}
+      title={NAV_COPY.toggleAria}
+      aria-label={NAV_COPY.toggleAria}
       className="
         flex items-center gap-2
         p-2 rounded-full
@@ -27,7 +26,13 @@ export default function ThemeToggle({
       "
     >
       {theme === "dark" ? (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -36,7 +41,13 @@ export default function ThemeToggle({
           />
         </svg>
       ) : (
-        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <svg
+          className="w-5 h-5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          aria-hidden="true"
+        >
           <path
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -46,7 +57,9 @@ export default function ThemeToggle({
         </svg>
       )}
 
-      <span className="text-xs font-bold uppercase tracking-widest md:hidden">Tema</span>
+      <span className="text-xs font-bold uppercase tracking-widest md:hidden">
+        Tema
+      </span>
     </button>
   );
 }

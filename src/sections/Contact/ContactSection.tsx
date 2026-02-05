@@ -1,17 +1,12 @@
 import React from "react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Variants } from "framer-motion";
-import { COPY, WHATSAPP_LINK } from "../data/constants";
-
-type ContactCard = {
-  readonly key: "online" | "presencial";
-  readonly title: string;
-  readonly cta: string;
-  readonly messageSuffix: string;
-};
+import { WHATSAPP_LINK } from "../../shared/whatsapp";
+import { ContactCard } from "./types";
+import { CONTACT_COPY } from "./copy";
 
 const ContactSection: React.FC = () => {
-  const { contact } = COPY;
+  const contact = CONTACT_COPY;
   const reduceMotion = useReducedMotion();
 
   const sectionTitleId = "contact-title";
@@ -51,10 +46,14 @@ const ContactSection: React.FC = () => {
         aria-hidden="true"
         className="absolute -top-24 -right-24 w-[28rem] h-[28rem] bg-accent/10 blur-[110px] rounded-full"
         animate={
-          reduceMotion ? undefined : { opacity: [0.7, 1, 0.7], scale: [1, 1.05, 1] }
+          reduceMotion
+            ? undefined
+            : { opacity: [0.7, 1, 0.7], scale: [1, 1.05, 1] }
         }
         transition={
-          reduceMotion ? undefined : { duration: 6, ease: "easeInOut", repeat: Infinity }
+          reduceMotion
+            ? undefined
+            : { duration: 6, ease: "easeInOut", repeat: Infinity }
         }
       />
 
@@ -94,7 +93,7 @@ const ContactSection: React.FC = () => {
             >
               {(contact.cards as readonly ContactCard[]).map((card) => {
                 const href = WHATSAPP_LINK.whatsapp(
-                  `${contact.whatsappBaseText} ${card.messageSuffix}`
+                  `${contact.whatsappBaseText} ${card.messageSuffix}`,
                 );
 
                 const isPrimary = card.key === "online";

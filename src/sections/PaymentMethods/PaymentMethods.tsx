@@ -1,18 +1,9 @@
 import React from "react";
-import { COPY } from "../data/constants";
 import { CreditCard, Wallet, QrCode } from "lucide-react";
 import { motion, useReducedMotion } from "framer-motion";
 import type { Variants } from "framer-motion";
-
-type PaymentIconType = "pix" | "card" | "cash";
-
-type PaymentMethod = {
-  readonly icon: {
-    readonly type: PaymentIconType;
-  };
-  readonly title: string;
-  readonly description: string;
-};
+import { PaymentIconType, PaymentMethod } from "./types";
+import { PAYMENT_METHODS_COPY } from "./copy";
 
 const iconMap: Record<PaymentIconType, React.ElementType> = {
   pix: QrCode,
@@ -21,7 +12,7 @@ const iconMap: Record<PaymentIconType, React.ElementType> = {
 };
 
 const PaymentMethods: React.FC = () => {
-  const { paymentMethods } = COPY;
+  const paymentMethods = PAYMENT_METHODS_COPY;
   const reduceMotion = useReducedMotion();
   const sectionTitleId = "payment-methods-title";
 
@@ -79,27 +70,33 @@ const PaymentMethods: React.FC = () => {
           viewport={{ once: true, amount: 0.25 }}
           variants={stagger}
         >
-          {(paymentMethods.methods as readonly PaymentMethod[]).map((method) => {
-            const Icon = iconMap[method.icon.type];
+          {(paymentMethods.methods as readonly PaymentMethod[]).map(
+            (method) => {
+              const Icon = iconMap[method.icon.type];
 
-            return (
-              <motion.li key={method.icon.type} variants={fadeUp}>
-                <article className={cardBaseClass}>
-                  <div className="flex justify-center">
-                    <Icon size={40} className="text-accent" aria-hidden="true" />
-                  </div>
+              return (
+                <motion.li key={method.icon.type} variants={fadeUp}>
+                  <article className={cardBaseClass}>
+                    <div className="flex justify-center">
+                      <Icon
+                        size={40}
+                        className="text-accent"
+                        aria-hidden="true"
+                      />
+                    </div>
 
-                  <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
-                    {method.title}
-                  </h3>
+                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white">
+                      {method.title}
+                    </h3>
 
-                  <p className="text-sm text-slate-500 dark:text-slate-400 uppercase font-semibold tracking-widest">
-                    {method.description}
-                  </p>
-                </article>
-              </motion.li>
-            );
-          })}
+                    <p className="text-sm text-slate-500 dark:text-slate-400 uppercase font-semibold tracking-widest">
+                      {method.description}
+                    </p>
+                  </article>
+                </motion.li>
+              );
+            },
+          )}
         </motion.ul>
       </div>
     </section>

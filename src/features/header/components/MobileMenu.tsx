@@ -1,5 +1,5 @@
 import React from "react";
-import { COPY } from "../../../data/constants";
+import { NAV_COPY } from "../../../copy";
 
 export default function MobileMenu({
   open,
@@ -89,7 +89,7 @@ export default function MobileMenu({
             aria-label="Navegação mobile"
             className="flex flex-col gap-3 text-sm font-semibold uppercase tracking-widest text-slate-700 dark:text-slate-200"
           >
-            {COPY.nav.items.map((item, idx) => (
+            {NAV_COPY.items.map((item, idx) => (
               <a
                 key={item.href}
                 href={item.href}
@@ -124,7 +124,7 @@ export default function MobileMenu({
               motion-reduce:transition-none motion-reduce:transform-none
             "
           >
-            {COPY.nav.cta}
+            {NAV_COPY.cta}
           </a>
         </div>
       </div>

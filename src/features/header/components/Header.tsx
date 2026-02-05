@@ -6,7 +6,7 @@ import MobileMenu from "./MobileMenu";
 import ThemeToggle from "./ThemeToggle";
 import SkipToContent from "./SkipToContent";
 
-import { COPY } from "../../../data/constants";
+import { COPY } from "../../../copy/copy";
 import { useMobileMenuA11y } from "../hooks/useMobileMenuA11y";
 
 interface HeaderProps {

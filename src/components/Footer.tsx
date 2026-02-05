@@ -1,5 +1,5 @@
 import React from "react";
-import { COPY } from "../data/constants.ts";
+import { COPY } from "../copy/copy.ts";
 
 const CURRENT_YEAR = new Date().getFullYear();
 

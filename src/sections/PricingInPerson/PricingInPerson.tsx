@@ -1,11 +1,12 @@
 import React from "react";
 import { useReducedMotion } from "framer-motion";
-import { COPY, IN_PERSON_PLANS, WHATSAPP_LINK } from "../../data/constants";
 import { PlanCard, type InPersonPlan } from "./PlanCard";
 import { buildPlanWhatsappHref } from "./utils";
+import { IN_PERSON_PLANS, PRICING_IN_PERSON_COPY } from "./copy";
+import { WHATSAPP_LINK } from "../../shared/whatsapp";
 
 const PricingInPerson: React.FC = () => {
-  const { pricingInPerson } = COPY;
+  const pricingInPerson = PRICING_IN_PERSON_COPY;
   const reduceMotion = useReducedMotion();
 
   const sectionTitleId = "pricing-in-person-title";
@@ -23,7 +24,9 @@ const PricingInPerson: React.FC = () => {
             className="text-4xl md:text-5xl font-black font-oswald uppercase mb-6 tracking-tight text-slate-900 dark:text-white"
           >
             {pricingInPerson.titlePrefix}{" "}
-            <span className="text-accent">{pricingInPerson.titleHighlight}</span>
+            <span className="text-accent">
+              {pricingInPerson.titleHighlight}
+            </span>
           </h2>
 
           <p className="text-slate-600 dark:text-slate-400 text-lg">
@@ -36,7 +39,7 @@ const PricingInPerson: React.FC = () => {
             const href = buildPlanWhatsappHref(
               WHATSAPP_LINK.whatsapp,
               pricingInPerson.whatsappTextPrefix,
-              plan.name
+              plan.name,
             );
 
             return (

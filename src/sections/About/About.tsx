@@ -1,11 +1,11 @@
 import React from "react";
-import { COPY } from "../../data/constants.ts";
 import { useReducedMotion, Variants } from "framer-motion";
 import AboutMedia from "./AboutMedia";
 import AboutContent from "./AboutContent";
+import { ABOUT_COPY } from "./copy";
 
 const About: React.FC = () => {
-  const { about } = COPY;
+  const about = ABOUT_COPY;
   const reduceMotion = useReducedMotion();
 
   const sectionTitleId = "about-title";

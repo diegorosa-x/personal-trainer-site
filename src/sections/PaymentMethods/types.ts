@@ -1,12 +1,13 @@
 export type PaymentIconType = "pix" | "card" | "cash";
 
 export type PaymentMethod = {
-  icon: {
-    type: PaymentIconType;
+  readonly icon: {
+    readonly type: PaymentIconType;
   };
-  title: string;
-  description: string;
+  readonly title: string;
+  readonly description: string;
 };
+
 
 export type PaymentMethodsCopy = {
   sectionId: string;

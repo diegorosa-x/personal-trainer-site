@@ -1,9 +1,8 @@
 import React from "react";
-import { COPY, TESTIMONIALS } from "../../data/constants.ts";
 import { motion, useReducedMotion } from "framer-motion";
 import Carousel from "./Carousel";
-import { EXTRA_TESTIMONIALS } from "./data";
-import type { Testimonial } from "../../types";
+import { EXTRA_TESTIMONIALS, TESTIMONIALS, TESTIMONIALS_COPY } from "./copy.ts";
+import { Testimonial } from "./types.ts";
 
 const sectionClass =
   "py-24 bg-slate-50 dark:bg-slate-900/30 relative overflow-hidden " +
@@ -15,7 +14,7 @@ const fadeUp = {
 } as const;
 
 const Testimonials: React.FC = () => {
-  const { testimonials } = COPY;
+  const testimonials = TESTIMONIALS_COPY;
   const reduceMotion = useReducedMotion();
   const sectionTitleId = "testimonials-title";
 
