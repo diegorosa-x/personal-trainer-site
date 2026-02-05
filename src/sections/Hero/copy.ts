@@ -16,7 +16,7 @@ export const HERO_COPY = {
   },
   whatsappText: "Olá Higor, gostaria de saber mais sobre seu treinamento!",
   socialProof: {
-    count: "+200",
+    count: "+50",
     text: "vidas transformadas",
     avatarSeeds: [11, 12, 13, 14],
     avatarAlt: "Client",
