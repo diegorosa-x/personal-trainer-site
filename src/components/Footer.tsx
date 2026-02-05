@@ -1,5 +1,5 @@
 import React from "react";
-import { COPY } from "../copy/copy.ts";
+import { FOOTER_COPY, SITE_COPY } from "../copy";
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -25,13 +25,13 @@ const Footer: React.FC = () => {
           <a
             href="/"
             className="flex items-center gap-2 rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400 dark:focus-visible:ring-slate-600 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-slate-950"
-            aria-label={`Ir para a página inicial de ${COPY.site.trainerName}`}
-            title={`Home — ${COPY.site.trainerName}`}
+            aria-label={`Ir para a página inicial de ${SITE_COPY.trainerName}`}
+            title={`Home — ${SITE_COPY.trainerName}`}
           >
             {/* Logo (evita CLS com width/height) */}
             <img
               src="/logo.jpeg"
-              alt={`${COPY.site.trainerName} — logo`}
+              alt={`${SITE_COPY.trainerName} — logo`}
               width={32}
               height={32}
               loading="lazy"
@@ -42,17 +42,17 @@ const Footer: React.FC = () => {
 
             <span className="flex flex-col">
               <span className="text-xl font-bold uppercase tracking-tighter leading-none text-slate-900 dark:text-white">
-                {COPY.site.trainerName}
+                {SITE_COPY.trainerName}
               </span>
               <span className="text-[10px] text-slate-400 dark:text-slate-500 uppercase tracking-widest font-bold">
-                {COPY.site.trainerRole}
+                {SITE_COPY.trainerRole}
               </span>
             </span>
           </a>
 
           {/* Rights */}
           <div className="text-slate-400 dark:text-slate-500 text-sm font-medium">
-            {COPY.footer.rights(CURRENT_YEAR)}
+            {FOOTER_COPY.rights(CURRENT_YEAR)}
           </div>
 
           {/* Social nav */}
